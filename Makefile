@@ -1,20 +1,8 @@
 # PYTHON TARGETS
 
-.PHONY: freeze_python_reqs
-freeze_python_reqs:
-	pip freeze > requirements.txt
-
-.PHONY: install_python_reqs
-install_python_reqs:
-	pip install -r requirements.txt
-
 .PHONY: format_python
 format_python:
 	python -m black .
-
-.PHONY: typecheck_python
-typecheck_python:
-	mypy utilities_for_me/ 
 
 .PHONY: test_python
 test_python:
@@ -25,7 +13,7 @@ test_single_python:
 	coverage run -m pytest -s utilities_for_me/utilities/_encrypt_decrypt && coverage html
 
 .PHONY: check_python
-check_python: typecheck_python format_python test_python
+check_python: format_python test_python
 
 .PHONY: build_python
 build_python: check_python
@@ -45,7 +33,7 @@ check_js: format_js
 	echo "nope"
 
 .PHONY: run_dev_ui
-run_dev_ui: 
+run_dev_ui:
 	npm run wp-watch
 
 .PHONY: build_js

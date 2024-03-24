@@ -1,0 +1,50 @@
+{
+  "name": "utilitiesforme",
+  "version": "1.0.0",
+  "description": "The web frontend end for utilitiesfor.me",
+  "type": "module",
+  "scripts": {
+    "test-javascript": "jest",
+    "format-javascript": "standard --fix",
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "default": "utilities_for_me/web_app/static/index-bundle.js",
+  "keywords": ["web", "react", "app", "utilitiesforme"],
+  "author": "Matthew Cale",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-react": "^7.13.13",
+    "@fullhuman/postcss-purgecss": "^4.0.3",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.2.5",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.4",
+    "cssnano": "^5.0.2",
+    "jest": "^26.6.3",
+    "mini-css-extract-plugin": "^1.6.0",
+    "postcss": "^8.2.15",
+    "postcss-cli": "^8.3.1",
+    "postcss-loader": "^5.3.0",
+    "postcss-preset-env": "^9.5.1",
+    "sass": "^1.32.13",
+    "sass-loader": "^11.1.1",
+    "standard": "^16.0.3",
+    "tailwindcss": "3.4.1",
+    "vite": "^5.1.6",
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^5.0.3"
+  },
+  "dependencies": {
+    "js-beautify": "^1.13.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0"
+  },
+  "standard": {
+    "globals": ["test", "expect"]
+  }
+}

@@ -19,14 +19,14 @@ def create_app(test_config=None):
     else:
         app.config.from_mapping(test_config)
 
-    static_root = ""
+    static_root = "/static"
     trying_do = True
-    if trying_do:
-        static_root = "https://utilities-for-me.sfo3.digitaloceanspaces.com"
-    elif app.config["ENV"] == "production":
-        static_root = (
-            "https://storage.googleapis.com/utilities-for-me"  # config based on env!
-        )
+    # if trying_do:
+    #     static_root = "https://utilities-for-me.sfo3.digitaloceanspaces.com"
+    # elif app.config["ENV"] == "production":
+    #     static_root = (
+    #         "https://storage.googleapis.com/utilities-for-me"  # config based on env!
+    #     )
     app.config["STATIC_ROOT"] = static_root
 
     try:
