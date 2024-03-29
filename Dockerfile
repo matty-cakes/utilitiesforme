@@ -1,0 +1,35 @@
+# The BUILDER image, used to build the virtual environment
+FROM python:3.11-buster as builder
+
+RUN pip install poetry==1.4.2
+
+ENV POETRY_NO_INTERACTION=1 \
+    POETRY_VIRTUALENVS_IN_PROJECT=1 \
+    POETRY_VIRTUALENVS_CREATE=1 \
+    POETRY_CACHE_DIR=/tmp/poetry_cache
+
+RUN mkdir /app
+
+WORKDIR /app
+
+COPY pyproject.toml poetry.lock run_prod.sh ./
+
+RUN poetry install --without dev --no-root && rm -rf $POETRY_CACHE_DIR
+
+# The RUNTIME image, used to just run the code provided its virtual environment
+FROM python:3.11-slim-buster as runtime
+
+WORKDIR /app
+
+ENV VIRTUAL_ENV=/app/.venv \
+    PATH="/app/.venv/bin:$PATH"
+
+COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
+
+COPY run_prod.sh ./
+
+COPY utilities_for_me ./utilities_for_me
+
+ENV PORT 80
+
+ENTRYPOINT ["bash", "run_prod.sh"]
