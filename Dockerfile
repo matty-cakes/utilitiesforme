@@ -32,4 +32,6 @@ COPY utilities_for_me ./utilities_for_me
 
 ENV PORT 80
 
+EXPOSE 80
+
 ENTRYPOINT ["bash", "run_prod.sh"]

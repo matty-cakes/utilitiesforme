@@ -49,13 +49,13 @@ build/
 
 
 ## JavaScript, Node, And Client Assets
-.babelrc
-.cache
+# .babelrc
+# .cache
 
-node_modules
-package-lock.json
-package.json
+# node_modules
+# package-lock.json
+# package.json
 
-utilities_for_me/web_app/raw_assets
-utilities_for_me/web_app/static
-utilities_for_me/web_app/client
+# utilities_for_me/web_app/raw_assets
+# utilities_for_me/web_app/static
+# utilities_for_me/web_app/client
